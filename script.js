@@ -1,23 +1,16 @@
-const secretCode = "20-02-2026";
+const secretCode = "20/02/2026";
 
-function checkPassword(){
+function checkPassword() {
 
-let password = document.getElementById("password").value;
+    let password = document.getElementById("password").value;
 
-if(password===secretCode){
-
-window.location.href="home.html";
-
-}
-
-else{
-
-document.getElementById("error").innerHTML="Wrong Password ❤️";
+    if (password === secretCode) {
+        window.location.href = "home.html";
+    } else {
+        document.getElementById("error").innerHTML = "Wrong Password ❤️";
+    }
 
 }
-
-}
-
 function createHeart(){
 
 const item = document.createElement("div");
