@@ -45,7 +45,7 @@ setInterval(createHeart,300);
 
 setInterval(createFloatingItem,250);
 
-const message = `
+const letter = `
 
 My Poookieeeee ❤️,
 
