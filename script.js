@@ -101,3 +101,59 @@ function closeImage(){
 document.getElementById("popup").style.display="none";
 
 }
+const letter = `
+
+My Poookieeeee ❤️,
+
+From the moment you came into my life,
+everything became brighter.
+
+Every smile of yours gives me peace.
+
+Every laugh of yours becomes my favorite song.
+
+You are the first person I think about
+when I wake up,
+
+and the last person I think about
+before I fall asleep.
+
+Thank you for being patient with me,
+for believing in me,
+and for loving me.
+
+I promise to always stand beside you,
+to support you,
+to protect you,
+and to love you with all my heart.
+
+No matter where life takes us,
+I hope we will always walk together.
+
+Forever Yours Wifeyyyyyy❤️
+
+`;
+
+const target = document.getElementById("love-text");
+
+if(target){
+
+let i = 0;
+
+function typing(){
+
+if(i < letter.length){
+
+target.innerHTML += letter.charAt(i);
+
+i++;
+
+setTimeout(typing,35);
+
+}
+
+}
+
+typing();
+
+}
