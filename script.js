@@ -45,7 +45,7 @@ heart.remove();
 setInterval(createHeart,300);
 const message = `
 
-My Dearest ❤️,
+My Poookieeeee ❤️,
 
 Every day with you feels like a beautiful dream.
 
@@ -61,7 +61,7 @@ No matter where life takes us,
 
 I promise to always love you.
 
-Forever Yours ❤️
+Forever Yours Wifeyyyyy❤️
 
 `;
 
