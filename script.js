@@ -43,3 +43,46 @@ heart.remove();
 }
 
 setInterval(createHeart,300);
+const message = `
+
+My Dearest ❤️,
+
+Every day with you feels like a beautiful dream.
+
+You make my world brighter.
+
+Your smile is my favorite view.
+
+Your laugh is my favorite sound.
+
+Thank you for being part of my life.
+
+No matter where life takes us,
+
+I promise to always love you.
+
+Forever Yours ❤️
+
+`;
+
+let index = 0;
+
+function typeLetter(){
+
+const target=document.getElementById("typing");
+
+if(!target) return;
+
+if(index<message.length){
+
+target.innerHTML+=message.charAt(index);
+
+index++;
+
+setTimeout(typeLetter,40);
+
+}
+
+}
+
+window.onload=typeLetter;
