@@ -1,99 +1,65 @@
+/* ==========================================
+   SECRET PASSWORD
+========================================== */
+
 const secretCode = "20/02/2026";
 
 function checkPassword() {
 
-    let password = document.getElementById("password").value;
+    const password = document.getElementById("password");
 
-    if (password === secretCode) {
+    if (!password) return;
+
+    if (password.value.trim() === secretCode) {
+
         window.location.href = "home.html";
+
     } else {
-        document.getElementById("error").innerHTML = "Wrong Password ❤️";
+
+        const error = document.getElementById("error");
+
+        if (error) {
+            error.innerHTML = "Wrong Password ❤️";
+        }
+
     }
 
 }
-function createHeart(){
 
-const item = document.createElement("div");
 
-item.classList.add("heart");
+/* ==========================================
+   FLOATING HEARTS & CHERRY BLOSSOMS
+========================================== */
 
-// 50% chance of heart, 50% chance of cherry blossom
-item.innerHTML = Math.random() < 0.5 ? "❤️" : "🌸";
+function createFloatingItem() {
 
-item.style.left = Math.random() * 100 + "vw";
+    const item = document.createElement("div");
 
-item.style.animationDuration = (Math.random() * 4 + 4) + "s";
+    item.classList.add("heart");
 
-item.style.fontSize = (Math.random() * 20 + 15) + "px";
+    item.innerHTML = Math.random() < 0.6 ? "❤️" : "🌸";
 
-document.body.appendChild(item);
+    item.style.left = Math.random() * 100 + "vw";
 
-setTimeout(() => {
-    item.remove();
-}, 8000);
+    item.style.fontSize = (15 + Math.random() * 20) + "px";
 
-}
+    item.style.animationDuration = (5 + Math.random() * 5) + "s";
 
-setInterval(createHeart,300);
+    document.body.appendChild(item);
 
-setInterval(createFloatingItem,250);
-
-const letter = `
-
-My Poookieeeee ❤️,
-
-Every day with you feels like a beautiful dream.
-
-You make my world brighter.
-
-Your smile is my favorite view.
-
-Your laugh is my favorite sound.
-
-Thank you for being part of my life.
-
-No matter where life takes us,
-
-I promise to always love you.
-
-Forever Yours Wifeyyyyy❤️
-
-`;
-
-let index = 0;
-
-function typeLetter(){
-
-const target=document.getElementById("typing");
-
-if(!target) return;
-
-if(index<message.length){
-
-target.innerHTML+=message.charAt(index);
-
-index++;
-
-setTimeout(typeLetter,40);
+    setTimeout(() => {
+        item.remove();
+    }, 10000);
 
 }
 
-}
+setInterval(createFloatingItem, 350);
 
-window.onload=typeLetter;
-function openImage(src){
 
-document.getElementById("popup").style.display="flex";
+/* ==========================================
+   LOVE LETTER TYPEWRITER
+========================================== */
 
-document.getElementById("popup-img").src=src;
-
-}
-
-function closeImage(){
-
-document.getElementById("popup").style.display="none";
-
-}
 const letter = `
 
 My Poookieeeee ❤️,
@@ -123,30 +89,86 @@ and to love you with all my heart.
 No matter where life takes us,
 I hope we will always walk together.
 
-Forever Yours Wifeyyyyyy❤️
+Forever Yours Wifeyyyyy ❤️
 
 `;
 
-const target = document.getElementById("love-text");
+window.addEventListener("DOMContentLoaded", () => {
 
-if(target){
+    const target = document.getElementById("love-text");
 
-let i = 0;
+    if (target) {
 
-function typing(){
+        let i = 0;
 
-if(i < letter.length){
+        function typeWriter() {
 
-target.innerHTML += letter.charAt(i);
+            if (i < letter.length) {
 
-i++;
+                target.innerHTML += letter.charAt(i);
 
-setTimeout(typing,35);
+                i++;
+
+                setTimeout(typeWriter, 35);
+
+            }
+
+        }
+
+        typeWriter();
+
+    }
+
+});
+
+
+/* ==========================================
+   GALLERY POPUP
+========================================== */
+
+function openImage(src) {
+
+    const popup = document.getElementById("popup");
+    const popupImg = document.getElementById("popup-img");
+
+    if (!popup || !popupImg) return;
+
+    popup.style.display = "flex";
+    popupImg.src = src;
 
 }
 
+function closeImage() {
+
+    const popup = document.getElementById("popup");
+
+    if (!popup) return;
+
+    popup.style.display = "none";
+
 }
 
-typing();
 
-}
+/* ==========================================
+   PRESS ENTER TO LOGIN
+========================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const input = document.getElementById("password");
+
+    if (input) {
+
+        input.addEventListener("keypress", function(e) {
+
+            if (e.key === "Enter") {
+
+                checkPassword();
+
+            }
+
+        });
+
+    }
+
+});
