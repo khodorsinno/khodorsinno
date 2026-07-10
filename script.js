@@ -18,37 +18,30 @@ document.getElementById("error").innerHTML="Wrong Password ❤️";
 
 }
 
-function createFloatingItem(){
+function createHeart(){
 
-const container=document.getElementById("background-animation");
+const item = document.createElement("div");
 
-if(!container) return;
+item.classList.add("heart");
 
-const item=document.createElement("div");
+// 50% chance of heart, 50% chance of cherry blossom
+item.innerHTML = Math.random() < 0.5 ? "❤️" : "🌸";
 
-const heart=Math.random()<0.5;
+item.style.left = Math.random() * 100 + "vw";
 
-item.className=heart?"floating-heart":"floating-flower";
+item.style.animationDuration = (Math.random() * 4 + 4) + "s";
 
-item.innerHTML=heart?"❤":"🌸";
+item.style.fontSize = (Math.random() * 20 + 15) + "px";
 
-item.style.left=Math.random()*100+"vw";
+document.body.appendChild(item);
 
-item.style.fontSize=(18+Math.random()*20)+"px";
-
-item.style.animationDuration=(6+Math.random()*8)+"s";
-
-item.style.animationDelay=Math.random()*2+"s";
-
-container.appendChild(item);
-
-setTimeout(()=>{
-
-item.remove();
-
-},14000);
+setTimeout(() => {
+    item.remove();
+}, 8000);
 
 }
+
+setInterval(createHeart,300);
 
 setInterval(createFloatingItem,250);
 const message = `
