@@ -1,4 +1,4 @@
-const secretCode = "1234";
+const secretCode = "20-02-2026";
 
 function checkPassword(){
 
