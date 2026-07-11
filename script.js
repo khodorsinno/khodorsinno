@@ -43,31 +43,39 @@ heart.remove();
 }
 
 setInterval(createHeart,300);
-function createHeart(){
+function createFloatingItem(){
 
-const heart=document.createElement("div");
+const container=document.getElementById("background-animation");
 
-heart.classList.add("heart");
+if(!container) return;
 
-heart.innerHTML="❤";
+const item=document.createElement("div");
 
-heart.style.left=Math.random()*100+"vw";
+const heart=Math.random()<0.5;
 
-heart.style.animationDuration=(Math.random()*4+4)+"s";
+item.className=heart?"floating-heart":"floating-flower";
 
-heart.style.fontSize=(Math.random()*20+15)+"px";
+item.innerHTML=heart?"❤":"🌸";
 
-document.body.appendChild(heart);
+item.style.left=Math.random()*100+"vw";
+
+item.style.fontSize=(18+Math.random()*20)+"px";
+
+item.style.animationDuration=(6+Math.random()*8)+"s";
+
+item.style.animationDelay=Math.random()*2+"s";
+
+container.appendChild(item);
 
 setTimeout(()=>{
 
-heart.remove();
+item.remove();
 
-},8000);
+},14000);
 
 }
 
-setInterval(createHeart,300);
+setInterval(createFloatingItem,250);
 const message = `
 
 My Pooookieeeeee ❤️,
